@@ -6,11 +6,16 @@ module.exports = {
       './src/index.js'
     ],
     module: {
-        loaders: [{
+      rules: [{
           test: /\.jsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader'
-        }]
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }          
+      ]
     },
     output: {
       path: DIR + '/dist',
@@ -18,8 +23,11 @@ module.exports = {
       filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
-    },    
+        extensions: ['*', '.js', '.jsx'],
+        alias: {
+          TestCss: path.resolve(__dirname, 'dist/css/')
+        }
+    },
     devServer: {
       contentBase: './dist'
     }

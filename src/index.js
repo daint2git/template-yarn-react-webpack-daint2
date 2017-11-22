@@ -1,9 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
+import 'TestCss/index.css';
  
 class App extends React.Component {
   render () {
-    return <p> demo yarn - react - webpack </p>;
+    return <p className="testClass"> demo yarn - react - webpack </p>;
   }
 }
 
